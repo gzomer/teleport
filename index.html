@@ -1,0 +1,201 @@
+<html>
+<head>
+	<title>Teleport - Travel everywhere</title>
+
+	<meta charset="utf-8">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<link rel="manifest" href="/js/manifest.json">
+
+	<link href="/css/app.css" rel="stylesheet">
+	<link href="/css/vr.css" rel="stylesheet">
+
+	<meta name="apple-mobile-web-app-title" content="Teleport">
+	<meta name="application-name" content="Teleport">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+
+	<!-- Vendor -->
+	<link href="/vendor/videojs/video-js.css" rel="stylesheet">
+   	<link href="/vendor/videovr/videojs-vr.css" rel="stylesheet">
+	<script src="/vendor/videojs/video.js"></script>
+  	<script src="/vendor/videovr/videojs-vr.js?v=3"></script>
+  	<script type="text/javascript" src="/vendor/recorder/recorder.js"> </script>
+
+  	<!-- App -->
+	<script type="text/javascript" src="/js/log.js"> </script>
+	<script type="text/javascript" src="/js/audio.js?v=5"> </script>
+	<script type="text/javascript" src="/js/vr.js?v=5"> </script>
+	<script type="text/javascript" src="/js/witai.js?v=5"> </script>
+	<script type="text/javascript" src="/js/speechDetector.js?v=5"> </script>
+	<script type="text/javascript" src="/js/teleport.js?v=5"> </script>
+	<script type="text/javascript" src="/js/booking.js?v=5"> </script>
+	<script type="text/javascript" src="/js/app.js?v=5"> </script>
+
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div class="main">
+		<div class="instructions">
+			<div class="step step1">
+				<h1>Welcome to Teleport ✈️ 🌍 </h1>
+				<p>You need to add this app to your home screen <br>to experience all the interactive features.</p>
+				<p>Just open Safari on your iPhone <br> and follow these instructions.</p>
+				<ol>
+					<li>
+						Tap the bookmark icon
+					</li>
+					<li>
+						Tap on 'Add to home screen'
+					</li>
+					<li>
+						The app will now appear on your home screen
+					</li>
+					<li>
+						Just tap on it and have fun travelling!
+					</li>
+				</ol>
+			</div>
+			<div class="step step2">
+				<h1>Allow audio</h1>
+				<p>We need audio permission to detect <br>your commands to interact with the app</p>
+			</div>
+			<div class="step step3">
+				<h1>Allow device orientation</h1>
+				<p>We need your device orientation <br>to give you a Virtual Reality experience.</p>
+				<button class="btn-primary" id="orientationPermissionBtn">Allow Orientation</button>
+			</div>
+			<div class="step step4">
+				<h1>Get ready to Teleport ✈️ 🌍 </h1>
+				<p class="paragraph">Just follow these instructions to start travelling:</p>
+				<ol>
+					<li>
+						Click 'Start'
+					</li>
+					<li>
+						Put your smartphone on your VR device
+					</li>
+					<li>
+						Now you can interact with Teleport just by talking to it
+					</li>
+				</ol>
+				<div class="saying-wrapper">
+					<div class="saying">Take me to Rome</div>
+					<div class="saying">Show me next attraction</div>
+					<div class="saying">Take me to the Coliseum</div>
+					<div class="saying">Show me a famous painting</div>
+					<div class="saying">Tell me about this attraction</div>
+					<div class="saying">I want to scuba diving</div>
+					<div class="saying">Show me animals</div>
+					<div class="saying">Invite my friend John</div>
+					<div class="saying">Book a trip to Australia</div>
+					<div class="saying">Pause</div>
+					<div class="saying">Resume</div>
+				</div>
+
+				<button class="btn-primary" id="startVR">Start</button>
+			</div>
+		</div>
+		<div class="vr hidden">
+			<video width="100%" height="100%" id="videojs-vr-player" class="video-js vjs-default-skin" loop controls playsinline
+			  >
+			      <source src="/videos/world.mp4" type="video/mp4">
+			  </video>
+		</div>
+		<div class="booking hidden">
+			<div class="booking-options hidden">
+
+				<p>Here are some trips from London to Brisbane, Australia</p>
+				<div class="table">
+					<div class="row">
+						<div class="col">
+							<div>Fri, 7 Aug <br> Mon, 10 Aug</div>
+						</div>
+						<div class="col">
+							<div class="price">$2442</div>
+							<div class="info">round trip</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div>Fri, 14 Aug <br> Mon, 17 Aug</div>
+						</div>
+						<div class="col">
+							<div class="price">$2299</div>
+							<div class="info">round trip</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div>Fri, 21 Aug <br> Mon, 24 Aug</div>
+						</div>
+						<div class="col">
+							<div class="price">$2496</div>
+							<div class="info">round trip</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="booking-review hidden">
+
+
+					<h3>London to Brisbane</h3>
+					<div class="table">
+						<div class="row">
+							<div class="col">Outbound</div>
+							<div class="col">Friday, 14 August</div>
+						</div>
+						<div class="row">
+							<div class="col">Inbound</div>
+							<div class="col">Monday, 17 August</div>
+						</div>
+						<div class="row payment-row">
+							<div class="col">
+								Do you confirm the payment of $2299?
+							</div>
+						</div>
+					</div>
+
+			</div>
+			<div class="booking-confirmed hidden">
+				<h3>Great! Your trip from <br> <b>London to Brisbane</b> is confirmed</h3>
+				<div class="table">
+					<div class="row">
+						<div class="col">Outbound</div>
+						<div class="col">Friday, 14 August</div>
+					</div>
+					<div class="row">
+						<div class="col">Inbound</div>
+						<div class="col">Monday, 17 August</div>
+					</div>
+				</div>
+			</div>
+			<div class="booking-vr">
+			  <div class="left">
+			    <div class="inner-content">
+
+			    </div>
+			  </div>
+			  <div class="right">
+			    <div class="inner-content-right">
+
+			    </div>
+			  </div>
+			</div>
+		</div>
+
+		<div class="conversation hidden">
+			<audio src="/audio/hey.mp3" id="hey"/>
+			<audio src="/audio/go_together.mp3" id="go_together"/>
+			<audio src="/audio/any_weekend.mp3" id="any_weekend"/>
+			<audio src="/audio/sistine.mp3" id="sistine"/>
+		</div>
+	</div>
+</body>
+</html>
