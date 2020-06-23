@@ -12,7 +12,7 @@
 	<link rel="manifest" href="/js/manifest.json">
 
 	<link href="/css/app.css" rel="stylesheet">
-	<link href="/css/vr.css" rel="stylesheet">
+	<link href="/css/vr.css?v=1" rel="stylesheet">
 
 	<meta name="apple-mobile-web-app-title" content="Teleport">
 	<meta name="application-name" content="Teleport">
@@ -24,23 +24,27 @@
 	<link href="/vendor/videojs/video-js.css" rel="stylesheet">
    	<link href="/vendor/videovr/videojs-vr.css" rel="stylesheet">
 	<script src="/vendor/videojs/video.js"></script>
-  	<script src="/vendor/videovr/videojs-vr.js?v=3"></script>
+  	<script src="/vendor/videovr/videojs-vr.js?v=5"></script>
   	<script type="text/javascript" src="/vendor/recorder/recorder.js"> </script>
 
   	<!-- App -->
 	<script type="text/javascript" src="/js/log.js"> </script>
-	<script type="text/javascript" src="/js/audio.js?v=5"> </script>
-	<script type="text/javascript" src="/js/vr.js?v=5"> </script>
-	<script type="text/javascript" src="/js/witai.js?v=5"> </script>
-	<script type="text/javascript" src="/js/speechDetector.js?v=5"> </script>
-	<script type="text/javascript" src="/js/teleport.js?v=5"> </script>
-	<script type="text/javascript" src="/js/booking.js?v=5"> </script>
-	<script type="text/javascript" src="/js/app.js?v=5"> </script>
+	<script type="text/javascript" src="/js/audio.js?v=7"> </script>
+	<script type="text/javascript" src="/js/vr.js?v=75"> </script>
+	<script type="text/javascript" src="/js/witai.js?v=6"> </script>
+	<script type="text/javascript" src="/js/speechDetector.js?v=6"> </script>
+	<script type="text/javascript" src="/js/teleport.js?v=10"> </script>
+	<script type="text/javascript" src="/js/booking.js?v=6"> </script>
+	<script type="text/javascript" src="/js/app.js?v=6"> </script>
 
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
+	<div class="rotate-info">
+		<h1>Welcome to <br/>Teleport ✈️ 🌍 </h1>
+		<p>Please put your smartphone in landscape mode</p>
+	</div>
 	<div class="main">
 		<div class="instructions">
 			<div class="step step1">
@@ -76,15 +80,20 @@
 				<p class="paragraph">Just follow these instructions to start travelling:</p>
 				<ol>
 					<li>
-						Click 'Start'
+						Make sure silent mode is turned off and not in low-power mode
 					</li>
 					<li>
-						Put your smartphone on your VR device
+						Tap 'Start'
+					</li>
+					<li>
+						Put your smartphone on your VR device.
 					</li>
 					<li>
 						Now you can interact with Teleport just by talking to it
 					</li>
 				</ol>
+				<button class="btn-primary" id="startVR">Start</button>
+
 				<div class="saying-wrapper">
 					<div class="saying">Take me to Rome</div>
 					<div class="saying">Show me next attraction</div>
@@ -98,12 +107,10 @@
 					<div class="saying">Pause</div>
 					<div class="saying">Resume</div>
 				</div>
-
-				<button class="btn-primary" id="startVR">Start</button>
 			</div>
 		</div>
 		<div class="vr hidden">
-			<video width="100%" height="100%" id="videojs-vr-player" class="video-js vjs-default-skin" loop controls playsinline
+			<video width="100%" height="100%" id="videojs-vr-player" class="video-js vjs-default-skin" loop controls playsinline muted
 			  >
 			      <source src="/videos/world.mp4" type="video/mp4">
 			  </video>
@@ -191,10 +198,24 @@
 		</div>
 
 		<div class="conversation hidden">
-			<audio src="/audio/hey.mp3" id="hey"/>
-			<audio src="/audio/go_together.mp3" id="go_together"/>
-			<audio src="/audio/any_weekend.mp3" id="any_weekend"/>
-			<audio src="/audio/sistine.mp3" id="sistine"/>
+			<audio class="audio-file" src="/audio/hey.mp3" id="hey"/>
+			<audio class="audio-file" src="/audio/go_together.mp3" id="go_together"/>
+			<audio class="audio-file" src="/audio/any_weekend.mp3" id="any_weekend"/>
+			<audio class="audio-file" src="/audio/sistine.mp3" id="sistine"/>
+		</div>
+
+		<div class="overlay hidden">
+			<div class="left">
+			    <div class="inner-content">
+			    	<img src="/img/spinner.svg"/>
+			    </div>
+			  </div>
+			  <div class="right">
+			    <div class="inner-content-right">
+			    	<img src="/img/spinner.svg"/>
+			    </div>
+			  </div>
+
 		</div>
 	</div>
 </body>
