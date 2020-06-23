@@ -4,7 +4,7 @@ Teleport is an interactive virtual reality experience. You travel around the wor
 
 The app understands what you are saying by using Wit.AI speech recognition and its advanced NLP features.
 
-Here is a list of the support commands:
+Here is a list of the supported commands:
 
 Travel around the world
 - Take me to Rome
