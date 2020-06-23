@@ -11,12 +11,12 @@ var Audio = function() {
 
     this.unlockAudio = function() {
         function unlockAudio() {
-          $(".audio-file").map(function(index, item) {
-            item.play()
-            item.pause()
-          })
-          document.body.removeEventListener('click', unlockAudio)
-          document.body.removeEventListener('touchstart', unlockAudio)
+            $(".audio-file").map(function(index, item) {
+                item.play()
+                item.pause()
+            })
+            document.body.removeEventListener('click', unlockAudio)
+            document.body.removeEventListener('touchstart', unlockAudio)
         }
         document.body.addEventListener('click', unlockAudio)
         document.body.addEventListener('touchstart', unlockAudio)
@@ -79,12 +79,12 @@ var Audio = function() {
         this.recorder.exportMonoWAV(function(stream) {
             this.isRecording = false;
             if (this.onRecordCallback){
-            	this.onRecordCallback(stream);
+                this.onRecordCallback(stream);
             }
         }.bind(this));
     }
     this.startRecorder = async function(onRecordCallback, onInitCallback) {
-    	this.onRecordCallback = onRecordCallback;
+        this.onRecordCallback = onRecordCallback;
         let streamNode = await this.speechDetector.startListening(this.onSpeak.bind(this), this.onSilence.bind(this))
 
         this.createRecorder(streamNode, onInitCallback);
