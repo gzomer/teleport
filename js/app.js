@@ -29,8 +29,8 @@ var App = function() {
 			this.nextInstruction()
 			this.waitForOrientationPermission()
 		}.bind(this), function(e) {
-			console.log('show error')
-		})
+			this.log.warn('Permission error', e)
+		}.bind(this))
 
 		this.setupHandlers()
 	}
@@ -129,7 +129,7 @@ var App = function() {
 	this.onStartClick = function() {
 		this.hideInstructions();
 		this.showVR()
-		//this.startRecorder();
+		this.startRecorder();
 	}
 
 	this.pauseVR = function() {
