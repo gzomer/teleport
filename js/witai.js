@@ -58,12 +58,11 @@ var WitAI = function() {
 			"action" :"end_booking"
 		},
 		"choose_option": {
-			"action" : "choose_option",
-			"option" : "$wit$number:number"
+			"action" : "choose_option"
 		},
 		"confirm": {
 			"action" : "confirm"
-		},
+		}
 	}
 
 	this.uploadSpeech = function(blob) {
@@ -141,8 +140,7 @@ var WitAI = function() {
 			return null;
 		}
 
-		let action = MAP_INTENTS[firstIntent.name];
-
+		let action = Object.assign({}, MAP_INTENTS[firstIntent.name]);
 
 		for (var key in action) {
 			var value = action[key];
