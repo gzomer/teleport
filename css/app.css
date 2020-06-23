@@ -1,29 +1,39 @@
+.main {
+    display: block;
+    background: turquoise;
+    height: 100%;
+    width: 100%;
+}
+
+.rotate-info {
+    display: none;
+}
+
 @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-  html {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    height: 100vw;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
+  .rotate-info {
+    display: flex!important;
+    background: turquoise;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .main {
+    display: none!important;
   }
 }
 
+
 body {
     font-family: 'Open Sans', sans-serif;
-	padding: 0px;
-	margin: 0px;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
 }
 
 .hidden {
     display: none!important;
-}
-.main {
-	display: block!important;
-	background: turquoise;
-	height: 100%;
 }
 
 .step {
@@ -39,8 +49,12 @@ body {
 }
 
 .btn-primary {
-    padding: 20px;
+    font-size: 18px;
+    line-height: 10px;
+    padding: 13px;
     background: blue;
+    width: 250px;
+    margin-bottom: 5px;
     border: 0px;
     border-radius: 20px;
     color: white;
@@ -51,16 +65,16 @@ body {
     display: block;
 }
 
-/*
+
 .vr {
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
     flex-direction: column;
 }
-*/
+
 .vr canvas {
   width: 100vw!important;
   height: 100vh!important;
@@ -75,7 +89,7 @@ body {
     height: 100%;
 }
 
-.booking-vr {
+.booking-vr, .overlay {
     text-align: center;
     display: block;
 }
@@ -85,11 +99,17 @@ body {
     text-align: center;
     display:inline-block;
 }
+
 .inner-content {
     padding: 50px;
 }
 .inner-content-right {
     padding: 50px 50px 50px 0px;
+}
+
+
+.overlay .inner-content {
+    margin-top: 100px;
 }
 
 .table {
@@ -138,4 +158,9 @@ body {
 }
 .paragraph {
     margin-bottom: 0px;
+}
+
+.step4 h1 {
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
