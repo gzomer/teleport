@@ -80,6 +80,14 @@ var Teleport = function() {
 					}
 				}
 			]
+		},
+		'back' : {
+			'start' : {
+				'video' : {
+					'src' : '/videos/world.mp4',
+					'projection' :'360'
+				}
+			},
 		}
 	}
 
@@ -133,9 +141,8 @@ var Teleport = function() {
 
 				return video
 			}
-		}
+		} else if (this.isLocation(action)) {
 
-		if (this.isLocation(action)) {
 			if (this.hasLocation(action.location)) {
 				this.setState({
 					currentLocation : action.location
@@ -147,9 +154,7 @@ var Teleport = function() {
 
 				return video
 			}
-		}
-
-		if (action.action == 'attraction_info') {
+		} else if (action.action == 'attraction_info') {
 			if (this.state.currentVideo != null) {
 				var videoId = this.state.currentVideo.id
 
@@ -159,9 +164,7 @@ var Teleport = function() {
 					}
 				}
 			}
-		}
-
-		if (action.action == 'next_attraction') {
+		} else if (action.action == 'next_attraction') {
 			if (!this.state.currentLocation) {
 				return null;
 			}
@@ -181,9 +184,7 @@ var Teleport = function() {
 			})
 
 			return video
-		}
-
-		if (action.action != null) {
+		} else if (action.action != null) {
 			var result = {}
 			result[action.action] = action
 
